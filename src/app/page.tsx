@@ -1,5 +1,9 @@
 import Image from "next/image";
 import { Open_Sans, Urbanist } from "next/font/google";
+import Link from "next/link";
+import HeroRotatingContent from "@/components/hero/HeroRotatingContent"
+
+
 
 const urbanist = Urbanist({ subsets: ["latin"], weight: "700" });
 const openSans = Open_Sans({ subsets: ["latin"], weight: "400" });
@@ -66,7 +70,6 @@ const steps = [
     ),
   },
 ];
-
 
 const challenges = [
   {
@@ -161,7 +164,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <div className="min-h-[75vh] w-full bg-[url('/background-hero.svg')] bg-cover bg-center bg-no-repeat font-sans">
-        <main className="mx-auto flex min-h-[75vh] max-w-screen-2xl flex-col px-4 py-8">
+        <main className="mx-auto flex min-h-[100vh] max-w-screen-2xl flex-col px-4 py-8">
           {/* Header */}
           <header className="sticky top-4 z-30 mb-12 flex items-center justify-between rounded-[16px] border border-white/20 bg-black/20 px-6 py-5 text-sm text-white backdrop-blur-md">
             <Image
@@ -180,39 +183,17 @@ export default function Home() {
               ))}
             </nav>
 
-            <button className={`${fontTitle} rounded-full border border-white/30 px-5 py-2 text-[14px] tracking-[0.06em] transition hover:bg-white/10`}>
+            <button className={`${fontTitle} rounded-full border border-white/30 px-5 py-2 text-[17px] tracking-[0.06em] transition hover:bg-white/10`}>
               Diferenciais
             </button>
           </header>
 
           {/* Hero content */}
-          <section className="grid flex-1 items-center gap-10 md:grid-cols-2">
-            <div className="space-y-6">
-              <h1 className={`text-6xl leading-[44px] text-white leading-[64px]`}>
-                Cansado de investir em anúncios e não ver resultado de verdade?
-              </h1>
-              <p className={`${fontText} text-[17px] leading-[26px] text-zinc-300`}>
-                Muitos negócios perdem dinheiro com campanhas sem suporte, leads ruins e contratos presos.
-              </p>
-
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <button className={`${fontTitle} rounded-full bg-[#F8CB1B] px-6 py-3 text-[14px] text-black transition hover:bg-[#e1b300]`}>
-                  Falar com especialista
-                </button>
-                <button className={`${fontTitle} rounded-full border border-white/30 px-6 py-3 text-[14px] text-white transition hover:bg-white/10`}>
-                  Nossas Soluções
-                </button>
-              </div>
-            </div>
-
-            <Image
-              src="/homem-com-dashboard.svg"
-              alt="Profissional analisando dashboard"
-              width={960}
-              height={800}
-              className="mx-auto w-full max-w-2xl"
-              priority
-            />
+          <section className="flex flex-1 items-center">
+                <HeroRotatingContent
+                  fontTitle={fontTitle}
+                  fontText={fontText}
+                />
           </section>
         </main>
       </div>
@@ -238,7 +219,7 @@ export default function Home() {
                 </p>
               </div>
             ))}
-          </div>
+          </div>o efeito ainda está aparecendo no atela quando entro no localhost
         </div>
       </section>
 
@@ -373,7 +354,7 @@ export default function Home() {
         </p>
       </div>
 
-      <button className={`${fontTitle} mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[#F8CB1B] px-6 py-3 text-[14px] font-medium text-black transition hover:bg-[#e1b300]`}>
+      <button className={`${fontTitle} mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-[#F8CB1B] px-6 py-3 text-[17px] font-medium text-black transition hover:bg-[#e1b300]`}>
         Falar com especialista
       </button>
     </div>
@@ -472,7 +453,7 @@ export default function Home() {
     </div>
   </div>
   <div className="mt-[60px] flex justify-center">
-  <button className={`${fontTitle} inline-flex items-center gap-2 rounded-full bg-[#F8CB1B] px-6 py-3 text-[14px] font-medium text-black transition hover:bg-[#e1b300]`}>
+  <button className={`${fontTitle} inline-flex items-center gap-2 rounded-full bg-[#F8CB1B] px-6 py-3 text-[17px] font-medium text-black transition hover:bg-[#e1b300]`}>
     Quero resultados assim também
   </button>
 </div>
@@ -531,7 +512,7 @@ export default function Home() {
 
       <div className="mt-10 flex justify-center">
         <button
-          className={`${fontTitle} inline-flex items-center gap-2 rounded-full bg-[#F8CB1B] px-6 py-3 text-[14px] font-medium text-black transition hover:bg-[#e1b300]`}
+          className={`${fontTitle} inline-flex items-center gap-2 rounded-full bg-[#F8CB1B] px-6 py-3 text-[17px] font-medium text-black transition hover:bg-[#e1b300]`}
         >
           Fale com especialista
         </button>
@@ -540,7 +521,42 @@ export default function Home() {
   </div>
 </section>
 
+<footer className="bg-[#030712] px-4 py-[60px]">
+  <div className="mx-auto max-w-screen-2xl space-y-8 text-center">
 
+    {/* Linha 1 – Menu */}
+    <nav className={`${fontText} flex flex-wrap justify-center gap-6 text-[14px] text-white/80`}>
+      <Link href="/privacidade" className="transition hover:text-white">
+        Política de Privacidade
+      </Link>
+      <Link href="#" className="transition hover:text-white">
+        Termos de uso
+      </Link>
+      <Link href="#" className="transition hover:text-white">
+        Políticas de Cookie
+      </Link>
+      <Link href="#" className="transition hover:text-white">
+        Contato
+      </Link>
+    </nav>
+
+    {/* Linha 2 – Endereço e CNPJ */}
+    <p className={`${fontText} mx-auto max-w-4xl text-[14px] leading-6 text-white/60`}>
+      Ed. BHTC - Av. Dr. Vital Brasil, 1060 - Sala 607 - Jardim Bom Pastor, Botucatu - SP, 18607-660 |
+      CNPJ: 48464-469454,454
+    </p>
+
+    {/* Linha 3 – LGPD */}
+    <p className={`${fontText} mx-auto max-w-5xl text-[13px] leading-6 text-white/50`}>
+      POLÍTICA DE PRIVACIDADE: A Política de Privacidade foi elaborada em conformidade com a Lei Federal
+      n. 12.965 de 23 de abril de 2014 (Marco Civil da Internet), com a Lei Federal n. 13.709, de 14 de
+      agosto de 2018 (Lei de Proteção de Dados Pessoais) e com o Regulamento UE n. 2016/679 de 27 de
+      abril de 2016 (Regulamento Geral Europeu de Proteção de Dados Pessoais – RGDP), pode ser lida na
+      íntegra clicando aqui.
+    </p>
+
+  </div>
+</footer>
 
     </>
   );
